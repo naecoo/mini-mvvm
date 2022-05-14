@@ -1,0 +1,48 @@
+<body>
+  <div id="app">
+    <h3 v-text="title"></h3>
+    <button type="text" v-bind:value="value" v-on:click="decrement">-</button>
+    <span v-text="test.count"></span>
+    <button type="text" v-bind:value="value" v-on:click="increment">+</button>
+    <p v-text="countPlusOne"></p>
+  </div>
+</body>
+
+<script type="module" defer>
+  import { Vue } from './src/index.js'
+  new Vue({
+    el: '#app',
+    data: {
+      title: 'counter',
+      test: {
+        count: 10
+      }
+    },
+    computed: {
+      countPlusOne() {
+        return this.test.count + 1;
+      }
+    },
+    watch: {
+      'test.count': {
+        handler(oldVal, newVal) {
+          console.log('test.count');
+        }
+      },
+      countPlusOne: {
+        handler(oldVal, newVal) {
+          console.log('countPlusOne');
+          console.log(newVal);
+        }
+      }
+    },
+    methods: {
+      increment(e) {
+        this.test.count++;
+      },
+      decrement() {
+        this.test.count--;
+      }
+    }
+  })
+</script>

@@ -1,0 +1,8 @@
+{
+  "name": "mini-mvvm",
+  "version": "1.0.0",
+  "description": "mini mvvm framework",
+  "main": "src/index.js",
+  "authors": "ocean <ocean7hy@gmail.com>",
+  "license": "MIT"
+}
